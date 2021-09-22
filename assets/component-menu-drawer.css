@@ -37,9 +37,9 @@ menu-drawer > details[open] > summary::before {
   z-index: 3;
   left: 0;
   top: 100%;
-  width: calc(100vw - 4rem);
+  width: 100%;
   padding: 0;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  border: 0;
   border-left: 0;
   background-color: rgb(var(--color-background));
   overflow-x: hidden;
@@ -89,7 +89,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation {
-  padding: 5.6rem 0;
+  /* padding: 5.6rem 0; */
 }
 
 .menu-drawer__inner-submenu {
@@ -146,7 +146,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__menu-item:hover,
 .menu-drawer__close-button:hover {
   color: rgb(var(--color-foreground));
-  background-color: rgba(var(--color-foreground), 0.04);
+  background-color: rgba(var(--color-base-accent-1));
 }
 
 .menu-drawer__menu-item--active:hover {
@@ -206,7 +206,6 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__utility-links {
   padding: 2rem;
-  background-color: rgba(var(--color-foreground), 0.03);
 }
 
 .menu-drawer__account {
