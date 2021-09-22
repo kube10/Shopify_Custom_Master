@@ -1,32 +1,80 @@
 {
   "current": {
-    "colors_solid_button_labels": "#FFFFFF",
-    "colors_accent_1": "#121212",
-    "colors_accent_2": "#334FB4",
-    "colors_text": "#121212",
-    "colors_outline_button_labels": "#121212",
-    "colors_background_1": "#FFFFFF",
-    "colors_background_2": "#F3F3F3",
+    "colors_solid_button_1_labels": "#272727",
+    "colors_solid_button_2_labels": "#fafafa",
+    "colors_accent_1": "#50ffb1",
+    "colors_accent_2": "#f78764",
+    "colors_text_base": "#272727",
+    "colors_text_light": "#fafafa",
+    "colors_outline_button_labels": "#272727",
+    "colors_background_1": "#fafafa",
+    "colors_background_2": "#272727",
     "type_header_font": "assistant_n4",
     "type_body_font": "assistant_n4",
+    "colors_solid_button_labels": "#FFFFFF",
+    "colors_text": "#121212",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
+        "settings": {
+        }
+      },
+      "top-bar": {
+        "type": "top-bar",
+        "settings": {
+          "message_left": "UP TO 70% OFF ON SUMMER 21 COLLECTION",
+          "message_link": "https:\/\/kube10-development-store.myshopify.com\/collections\/summer-21",
+          "menu": "top-bar"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "color_scheme": "background-1",
+          "logo": "shopify:\/\/shop_images\/LOGO_c3a69634-7cdc-4c97-8311-92ed78019f75.png",
+          "logo_width": 100,
+          "logo_position": "middle-left",
+          "menu": "main-menu",
+          "show_line_separator": true,
+          "enable_sticky_header": true
+        }
+      },
+      "footer": {
+        "type": "footer",
         "blocks": {
-          "announcement-bar-0": {
-            "type": "announcement",
+          "footer-0": {
+            "type": "link_list",
             "settings": {
-              "color_scheme": "background-1"
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "text",
+            "settings": {
+              "heading": "Heading",
+              "subtext": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
             }
           }
         },
         "block_order": [
-          "announcement-bar-0"
+          "footer-0",
+          "footer-1"
         ],
         "settings": {
+          "color_scheme": "background-1",
+          "newsletter_enable": true,
+          "newsletter_heading": "Subscribe to our emails",
+          "show_social": false,
+          "enable_country_selector": true,
+          "enable_language_selector": true,
+          "payment_enable": true
         }
       }
-    }
+    },
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
