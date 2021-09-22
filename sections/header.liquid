@@ -326,9 +326,11 @@
       <div class="header__heading">
     {%- endif -%}
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-          {%- if section.settings.logo != blank -%}
+          {%- if section.settings.logo_svg != blank -%}
+            {{ section.settings.logo_svg }}
+          {%- elsif section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
-            <img 
+            <img
               src="{{ section.settings.logo | img_url: image_size }}"
               loading="lazy"
               class="header__heading-logo"
@@ -675,6 +677,11 @@
       "type": "image_picker",
       "id": "logo",
       "label": "t:sections.header.settings.logo.label"
+    },
+    {
+      "type": "textarea",
+      "id": "logo_svg",
+      "label": "Logo SVG"
     },
     {
       "type": "range",
