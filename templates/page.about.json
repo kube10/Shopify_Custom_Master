@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "about-content",
+      "settings": {}
+    },
+    "team": {
+      "type": "team-members",
+      "settings": {}
+    }
+  },
+  "order": ["main", "team"]
+}

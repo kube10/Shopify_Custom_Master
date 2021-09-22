@@ -1,0 +1,7 @@
+.section-hero__1 {
+  min-height: 100vh;
+}
+
+.section-hero__1 > .grid {
+  height: 100%;
+}

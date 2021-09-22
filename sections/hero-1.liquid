@@ -1,0 +1,45 @@
+{{ "section-hero__1.css" | asset_url | stylesheet_tag }}
+
+<div class="page-width section-hero__1">
+  <div class="grid grid--1-col grid--2-col-tablet">
+    <div class="grid__item grid__item--vertical-align">
+      <h1>{{section.settings.headline}}</h1>
+      <h5>{{section.settings.subheadline}}</h5>
+    </div>
+    <div class="grid__item grid__item--vertical-align">
+      {% if section.settings.image %}
+        {{ section.settings.image | img_url: '500x' | img_tag }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+ {
+   "name": "Hero Section__1",
+   "tag": "section",
+   "settings": [
+    {
+      "id": "headline",
+      "type": "text",
+      "label": "Headline"
+    },
+    {
+      "id": "subheadline",
+      "type": "textarea",
+      "label": "Subheadline (Multiline)"
+    },
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    }
+   ],
+   "presets": [
+     {
+       "name": "Hero Section__1"
+     }
+   ]
+ }
+{% endschema %}

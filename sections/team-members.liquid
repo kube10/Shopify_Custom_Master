@@ -1,0 +1,70 @@
+<div class="page-width">
+  {% if section.settings.header != blank %}
+  <div class="section-header text-center">
+    <h2>{{section.settings.header | escape}}</h2>
+  </div>
+  {% endif %}
+
+<div class="grid grid--1-col grid--2-col-tablet grid--3-col-desktop">
+  {% for member in section.blocks %}
+    <div class="grid__item">
+      {% if member.settings.staff-image %}
+        {{ member.settings.staff-image | img_url: '250x' | img_tag }}
+      {% endif %}
+      <h3>{{member.settings.staff-name}}</h3>
+      <span>{{member.settings.staff-title}}</span>
+      <p>{{member.settings.staff-bio}}</p>
+    </div>
+  {% endfor %}
+</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Team Members",
+  "class": "team-members-section",
+  "tag": "section",
+  "settings": [
+    {
+      "id": "header",
+      "type": "text",
+      "label": "Header",
+      "default": "Team Members"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Team Member",
+      "type": "staff-profile",
+      "settings": [
+        {
+          "id": "staff-name",
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "id": "staff-title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "staff-bio",
+          "type": "textarea",
+          "label": "Bio"
+        },
+        {
+          "id": "staff-image",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+   {
+     "name": "Team Section"
+   }
+ ]
+}
+{% endschema %}

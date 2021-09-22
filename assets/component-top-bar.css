@@ -1,0 +1,29 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar-nav {
+  list-style-type: none;
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.top-bar-message {
+  font-size: 0.812rem;
+  letter-spacing: 0.1em;
+}
+
+.message-link {
+  text-decoration: none;
+  color: var(--color-foreground);
+}
+
+.top-bar-nav-link {
+  text-decoration: none;
+  color: var(--color-foreground);
+  margin-left: 2rem;
+  font-size: 0.812rem;
+}

@@ -1,0 +1,41 @@
+{{ "component-top-bar.css" | asset_url | stylesheet_tag }}
+{% if section.settings.menu != blank or section.settings.message_left != blank %}
+  <div class="top-bar page-width color-background-2">
+    {% if section.settings.message_link != blank %}
+    <a class="top-bar-message message-link" href="{{section.settings.message_link}}">{{ section.settings.message_left}}</a>
+      {% else %}
+      <span class="top-bar-message">{{ section.settings.message_left}} </span>
+    {% endif %}
+    <ul class="top-bar-nav">
+      {%- for link in section.settings.menu.links -%}
+        <li><a class="top-bar-nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Top Bar",
+  "tag": "div",
+  "class": "color-background-2",
+  "settings": [
+    {
+      "id": "message_left",
+      "type": "text",
+      "label": "Message Left"
+    },
+    {
+      "id": "message_link",
+      "type": "text",
+      "label": "Message Link URL"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    }
+  ]
+}
+{% endschema %}
