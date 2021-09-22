@@ -6,14 +6,22 @@
 
 .top-bar-nav {
   list-style-type: none;
-  display: flex;
+  display: none;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 992px) {
+  .top-bar-nav {
+    display: flex;
+  }
 }
 
 .top-bar-message {
   font-size: 0.812rem;
   letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .message-link {
