@@ -225,7 +225,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer .list-social {
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-left: -1.25rem;
   margin-top: 2rem;
 }
