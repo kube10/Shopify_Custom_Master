@@ -1,7 +1,15 @@
 .section-hero__1 {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
 }
 
 .section-hero__1 > .grid {
   height: 100%;
+}
+
+.section-hero__1_brands {
+  display: flex;
+}
+
+.section-hero__1_brands-logo {
+  margin-right: 2rem;
 }

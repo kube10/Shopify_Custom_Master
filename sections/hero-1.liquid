@@ -5,6 +5,22 @@
     <div class="grid__item grid__item--vertical-align">
       <h1>{{section.settings.headline}}</h1>
       <h5>{{section.settings.subheadline}}</h5>
+      {% if section.settings.brand_logo_headline != 'blank' %}
+        <h6>{{ section.settings.brand_logo_headline | escape }}</h6>
+      {% endif %}
+      {% if section.blocks != blank %}
+        <div class="section-hero__1_brands">
+          {% for block in section.blocks%}
+            {% if block.type == 'brand-logo' %}
+              <div class="section-hero__1_brands-logo">
+                {% if block.settings.logo_image%}
+                  {{block.settings.logo_image | img_url: "75px" | img_tag }}
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
     <div class="grid__item grid__item--vertical-align">
       {% if section.settings.image %}
@@ -34,7 +50,26 @@
       "id": "image",
       "type": "image_picker",
       "label": "Image"
+    },
+    {
+      "id": "brand_logo_headline",
+      "type": "text",
+      "label": "Logos Headline",
+      "info": "Displayed above logo blocks"
     }
+   ],
+   "blocks": [
+     {
+       "name": "logo",
+       "type": "brand-logo",
+       "settings": [
+         {
+           "id": "logo_image",
+           "type": "image_picker",
+           "label": "Logo Image"
+         }
+       ]
+     }
    ],
    "presets": [
      {
