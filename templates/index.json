@@ -35,8 +35,16 @@
         "8495d6dd-aa6c-4d52-a649-756fafb177d1"
       ],
       "settings": {
+        "primary_CTA_label": "Shop now",
+        "secondary_CTA_label": "About us",
+        "primary_CTA_url": "shopify:\/\/collections\/all",
+        "secondary_CTA_url": "shopify:\/\/pages\/about-us",
+        "color_scheme": "background-1",
         "headline": "Ready for summer 21?",
+        "content_width": 470,
         "subheadline": "Discover our latest collection, designed with special care for all alternatives, weirdos and other misfits.",
+        "image": "shopify:\/\/shop_images\/sneakers.png",
+        "image_width": 640,
         "brand_logo_headline": "Just a few of our top brands..."
       }
     },
