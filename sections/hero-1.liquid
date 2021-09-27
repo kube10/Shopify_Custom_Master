@@ -1,45 +1,117 @@
 {{ "section-hero__1.css" | asset_url | stylesheet_tag }}
 
-<div class="page-width section-hero__1">
-  <div class="grid grid--1-col grid--2-col-tablet">
-    <div class="grid__item grid__item--vertical-align">
-      <h1>{{section.settings.headline}}</h1>
-      <h5>{{section.settings.subheadline}}</h5>
-      {% if section.settings.brand_logo_headline != 'blank' %}
-        <h6>{{ section.settings.brand_logo_headline | escape }}</h6>
-      {% endif %}
-      {% if section.blocks != blank %}
-        <div class="section-hero__1_brands">
-          {% for block in section.blocks%}
-            {% if block.type == 'brand-logo' %}
-              <div class="section-hero__1_brands-logo">
-                {% if block.settings.logo_image%}
-                  {{block.settings.logo_image | img_url: "75px" | img_tag }}
-                {% endif %}
-              </div>
-            {% endif %}
-          {% endfor %}
+<div class="wrapper color-{{section.settings.color_scheme}}">
+  <div class="page-width section-hero__1">
+    <div class="grid grid--1-col grid--2-col-tablet">
+      <div class="grid__item grid__item--vertical-align">
+        <h1 style="max-width: {{section.settings.content_width}}px">{{section.settings.headline}}</h1>
+        <h5 style="max-width: {{section.settings.content_width}}px">{{section.settings.subheadline}}</h5>
+        <div class="btn-group section-hero__1_btn-group">
+          {% if section.settings.primary_CTA_label != blank %}
+            <button class="button button--primary" href="{{section.settings.primary_CTA_url}}">{{section.settings.primary_CTA_label}}</button>
+          {% endif %}
+
+          {% if section.settings.secondary_CTA_label != blank %}
+            <button class="button button--secondary" href="{{section.settings.secondary_CTA_url}}">{{section.settings.secondary_CTA_label}}</button>
+          {% endif %}
         </div>
-      {% endif %}
-    </div>
-    <div class="grid__item grid__item--vertical-align">
-      {% if section.settings.image %}
-        {{ section.settings.image | img_url: '500x' | img_tag }}
-      {% endif %}
+        {% if section.settings.brand_logo_headline != 'blank' %}
+          <h6>{{ section.settings.brand_logo_headline | escape }}</h6>
+        {% endif %}
+        {% if section.blocks != blank %}
+          <div class="section-hero__1_brands">
+            {% for block in section.blocks%}
+              {% if block.type == 'brand-logo' %}
+                <div class="section-hero__1_brands-logo">
+                  {% if block.settings.logo_image%}
+                    {{block.settings.logo_image | img_url: "75px" | img_tag }}
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="grid__item grid__item--vertical-align">
+        {% if section.settings.image %}
+           {% assign image_width = section.settings.image_width | append: 'x' %}
+          {{ section.settings.image | img_url: image_width | img_tag: '', 'section-hero__1-image' }}
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
+
 
 
 {% schema %}
  {
    "name": "Hero Section__1",
    "tag": "section",
+   "class": "wrap-hero-section-1",
    "settings": [
+      {
+        "type": "text",
+        "id": "primary_CTA_label",
+        "label": "Primary CTA Label"
+      },
+      {
+        "type": "text",
+        "id": "secondary_CTA_label",
+        "label": "Secondary CTA Label"
+      },
+      {
+        "type": "url",
+        "id": "primary_CTA_url",
+        "label": "Primary CTA URL"
+      },
+      {
+        "type": "url",
+        "id": "secondary_CTA_url",
+        "label": "Secondary CTA URL"
+      },
+     {
+       "type": "select",
+       "id": "color_scheme",
+       "options": [
+         {
+           "value": "accent-1",
+           "label": "t:sections.header.settings.color_scheme.options__1.label"
+         },
+         {
+           "value": "accent-2",
+           "label": "t:sections.header.settings.color_scheme.options__2.label"
+         },
+         {
+           "value": "background-1",
+           "label": "t:sections.header.settings.color_scheme.options__3.label"
+         },
+         {
+           "value": "background-2",
+           "label": "t:sections.header.settings.color_scheme.options__4.label"
+         },
+         {
+           "value": "inverse",
+           "label": "t:sections.header.settings.color_scheme.options__5.label"
+         }
+       ],
+       "default": "background-1",
+       "label": "t:sections.header.settings.color_scheme.label"
+     },
     {
       "id": "headline",
       "type": "text",
       "label": "Headline"
+    },
+    {
+      "id": "content_width",
+      "type": "range",
+      "label": "Text Content Width",
+      "min": 150,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 320
     },
     {
       "id": "subheadline",
@@ -50,6 +122,16 @@
       "id": "image",
       "type": "image_picker",
       "label": "Image"
+    },
+    {
+      "id": "image_width",
+      "type": "range",
+      "label": "Hero Image Width",
+      "min": 350,
+      "max": 750,
+      "step": 10,
+      "unit": "x",
+      "default": 400
     },
     {
       "id": "brand_logo_headline",
